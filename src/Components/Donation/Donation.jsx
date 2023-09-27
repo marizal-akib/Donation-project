@@ -3,6 +3,8 @@ import CardOfDonation from "./CardOfDonation";
 import { useEffect, useState } from "react";
 import { getDonation } from "../../Utility/localStorage";
 
+
+
 const Donation = () => {
     const donations = useLoaderData();
     const [dataLength, setDataLength] = useState(4);
@@ -37,9 +39,9 @@ const Donation = () => {
                     donation={donation}></CardOfDonation>)
             }
             </div>
-            <div className={ dataLength === submittedDonation.length ? 'hidden' : ""}>
+            <div className={ dataLength === submittedDonation.length ? 'hidden' : ''}>
                 <button onClick={() =>setDataLength(submittedDonation.length)}
-                className=" btn btn-primary">Show All </button>
+                className=" btn btn-primary m-5">Show All </button>
             </div>
         </div>
     );

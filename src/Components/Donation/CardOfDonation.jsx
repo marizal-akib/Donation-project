@@ -1,23 +1,40 @@
 /* eslint-disable react/prop-types */
-
+import tinycolor from 'tinycolor2';
 import { Link } from "react-router-dom";
+import {BiDollar} from 'react-icons/bi'
 
 const CardOfDonation = ({ donation }) => {
+  const {  picture_re, title, category, category_bg, card_bg, text_button_bg,price } =
+    donation;
+  const textBtnColor = tinycolor(text_button_bg).darken(20).toString();
+  const categoryColor = tinycolor(category_bg).brighten(25).toString();
   return (
-    <div className="card w-96 bg-base-100 shadow-xl flex flex-row">
+    <div style={{background:card_bg}} className="card w-12/12 shadow-xl flex flex-row">
       <figure>
-        <img
-          src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
-        />
+        <img className="w-56 h-52" src={picture_re} alt={title} />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-start">
-            <Link to={`/donationD/${donation.id}`}>
-          <button className="btn btn-primary">View Details</button>
-            </Link>
+          <div
+            style={{ background: categoryColor, color: textBtnColor }}
+            className="border pl-1 px-1 text-xs font-semibold "
+          >
+            {category}
+          </div>
+        </div>
+        <p style={{color:textBtnColor}} className="text-base font-semibold ">
+          {title}
+        </p>
+        <div style={{ color:textBtnColor }} className='flex items-center'>
+        <BiDollar></BiDollar>
+        <p className='font-semibold' style={{ color:textBtnColor }}>
+        {price}
+        </p>
+        </div>
+        <div className="card-actions justify-start ">
+          <Link to={`/donationD/${donation.id}`}>
+            <button style={{ background:textBtnColor}} className="btn text-white">View Details</button>
+          </Link>
         </div>
       </div>
     </div>

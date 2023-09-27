@@ -1,10 +1,16 @@
+import PieChart from "./PieChart";
 
 const Statistics = () => {
+    const totalDonations = useLoaderData();
+    const usersDonations = getDonation();
+
+    
     return (
         <div>
-            <h2>statistics</h2>
+            <PieChart></PieChart>
+
         </div>
     );
 };
 
-export default Statistics;
+export default Statistics; 
