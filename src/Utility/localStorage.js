@@ -13,7 +13,7 @@ const saveDonation = id =>{
 
     if(!exist){
         storedDonation.push(id);
-        localStorage.setItem('donate-fund',JSON.parse(storedDonation))
+        localStorage.setItem('donate-fund',JSON.stringify(storedDonation))
     }
 }
 

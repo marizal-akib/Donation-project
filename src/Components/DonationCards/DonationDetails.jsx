@@ -1,6 +1,8 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { BiDollar } from 'react-icons/bi';
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { saveDonation } from "../../Utility/localStorage";
 
 
 const DonationDetails = () => {
@@ -10,8 +12,9 @@ const DonationDetails = () => {
     const donation = donations.find(donation => donation.id === idInt)
 
     const handelDonate = () =>{
-        
-    }
+        saveDonation(idInt),
+        toast("Thank you for your donation");
+    } 
 
     return (
         <div  className="flex flex-col justify-center items-center h-screen">
