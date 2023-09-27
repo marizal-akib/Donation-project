@@ -8,7 +8,7 @@ import { saveDonation } from "../../Utility/localStorage";
 const DonationDetails = () => {
     const donations = useLoaderData();
     const {id} = useParams();
-    const idInt = parseInt(id);
+    const idInt = parseInt(id); 
     const donation = donations.find(donation => donation.id === idInt)
 
     const handelDonate = () =>{
