@@ -9,6 +9,8 @@ import {
 import Roots from './Components/Roots/Roots.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import Home from './Components/Home/Home.jsx';
+import Donation from './Components/Donation/Donation.jsx';
+import Statistics from './Components/Statistics/Statistics.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,8 +20,18 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>
-      }
+        element:<Home></Home>,
+        loader: () => fetch('../public/donation.json')
+      },
+      {
+        path:'/donation',
+        element:<Donation></Donation>,
+      },
+      // {
+      //   path:'/statistics',
+      //   element:<Statistics></Statistics>
+        
+      // }
     ]
   },
 ]);

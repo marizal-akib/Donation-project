@@ -5,8 +5,10 @@ import NavBar from "../NavBar/NavBar";
 const Roots = () => {
     return (
         <div>
-            <NavBar></NavBar>
-            <Outlet></Outlet>
+            <div className="max-w-6xl mx-auto">
+                <NavBar></NavBar>
+            </div>
+                <Outlet></Outlet>
         </div>
     );
 };
