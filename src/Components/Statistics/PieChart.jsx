@@ -1,43 +1,112 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import ReactEcharts from "echarts-for-react";
-const PieChart = () => {
-  var option;
-  option = {
-    title: {
-      text: "Referer of a Website",
-      subtext: "Fake Data",
-      left: "center",
-    },
-    tooltip: {
-      trigger: "item",
-    },
-    legend: {
-      orient: "vertical",
-      left: "left",
-    },
-    series: [
-      {
-        name: "Access From",
-        type: "pie",
-        radius: "50%",
-        data: [
-          { value: 1048, name: "Search Engine" },
-          { value: 735, name: "Direct" },
-          { value: 580, name: "Email" },
-          { value: 484, name: "Union Ads" },
-          { value: 300, name: "Video Ads" },
-        ],
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: "rgba(0, 0, 0, 0.5)",
-          },
-        },
-      },
-    ],
-  };
-  return <ReactEcharts option={option} />;
+import { getDonation } from "../../Utility/localStorage";
+import Chart from 'react-apexcharts'
+
+
+const PieChart = ({totalDonations}) => {
+  
+  const usersDonations = getDonation(); 
+
+  
+  const totalInt = parseInt(totalDonations.length);
+  const donateInt = parseInt(usersDonations.length);
+  
+  console.log(totalInt , donateInt);
+  return (
+    <React.Fragment>
+        <div className="container mx-auto">
+            <Chart
+            type="pie"
+            width={1200}
+            height={400}
+
+            series={[totalInt,donateInt]}
+
+            
+
+            options={ {
+                labels:['Total Donation',"Your Donations"],
+
+                colors:[ "#b11226",'#00A36C'],
+                legend:{
+                    position:'bottom',
+                },
+                responsive:[
+                    {
+                        breakpoint:1024,
+                        options: {
+                            chart: {
+                              width: 980,
+                              height:350,
+                            },
+                            legend: {
+                              position: 'bottom'
+                            }
+                        }
+                    },
+                    {
+                        breakpoint:770,
+                        options: {
+                            chart: {
+                              width: 760,
+                              height:340,
+                            },
+                            
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    },
+                    {
+                        breakpoint:435,
+                        options: {
+                            chart: {
+                              width: 425,
+                              height:370,
+                            },
+                            legend: {
+                              position: 'bottom'
+                            }
+                        }
+                    },
+                    {
+                        breakpoint:380,
+                        options: {
+                            chart: {
+                              width: 375,
+                              height:320,
+                            },
+                            
+                            legend: {
+                              position: 'bottom'
+                            }
+                        }
+                    },
+                    {
+                        breakpoint:395,
+                        options: {
+                            chart: {
+                              width: 380,
+                              height:320,
+                            },
+                            
+                            legend: {
+                              position: 'bottom'
+                            }
+                        }
+                    }
+                ],
+            }}
+
+            >
+
+
+            </Chart>
+
+        </div>
+    </React.Fragment>
+  );
 };
 
 export default PieChart;
