@@ -22,7 +22,7 @@ const CardOfDonation = ({ donation }) => {
             {category}
           </div>
         </div>
-        <p style={{color:textBtnColor}} className="text-base font-semibold ">
+        <p className="text-xl font-bold">
           {title}
         </p>
         <div style={{ color:textBtnColor }} className='flex items-center'>

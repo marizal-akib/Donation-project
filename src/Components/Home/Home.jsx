@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DonationCards from "../DonationCards/DonationCards";
 
 const Home = () => {
